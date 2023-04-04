@@ -2,6 +2,11 @@ package com.mindex.challenge.data;
 
 import java.util.List;
 
+/*
+Using lombok can make creating the model objects easier.
+This library uses @Getter and @Setter annotations or the @Data annotation which does both, that automatically creates getters and setters for you.
+That way you only have to create the class members.
+ */
 public class Employee {
     private String employeeId;
     private String firstName;
