@@ -29,6 +29,20 @@ public class EmployeeController {
         return employeeService.getReportingStructure(id);
     }
 
+//    @PostMapping("/get-compensation/{id}")
+//    public ReportingStructure getEmployeeCompensation(@PathVariable String id) {
+//        LOG.debug("Received reporting structure get request for employee with id [{}]", id);
+//
+//        return employeeService.getReportingStructure(id);
+//    }
+//
+//    @GetMapping("/create-compensation")
+//    public ReportingStructure createEmployeeCompensation(@RequestBody Compensation compensation) {
+//        LOG.debug("Received reporting structure get request for employee with id [{}]", compensation);
+//
+//        return employeeService.getReportingStructure(compensation);
+//    }
+
     @GetMapping("/employee/{id}")
     public Employee read(@PathVariable String id) {
         LOG.debug("Received employee get request for id [{}]", id);
