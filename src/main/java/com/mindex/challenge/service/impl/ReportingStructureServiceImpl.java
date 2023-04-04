@@ -18,7 +18,7 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
     @Autowired
     private EmployeeServiceImpl employeeService;
 
-    private static final Logger LOG = LoggerFactory.getLogger(EmployeeServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ReportingStructureServiceImpl.class);
 
     @Override
     public ReportingStructure getReportingStructure(String id) {
