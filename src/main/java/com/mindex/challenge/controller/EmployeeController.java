@@ -1,8 +1,12 @@
 package com.mindex.challenge.controller;
 
+import com.mindex.challenge.data.Compensation;
 import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.data.ReportingStructure;
+import com.mindex.challenge.request.CompensationRequest;
+import com.mindex.challenge.service.CompensationService;
 import com.mindex.challenge.service.EmployeeService;
+import com.mindex.challenge.service.ReportingStructureService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +19,12 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private ReportingStructureService reportingStructureService;
+
+    @Autowired
+    private CompensationService compensationService;
+
     @PostMapping("/employee")
     public Employee create(@RequestBody Employee employee) {
         LOG.info("Received employee create request");
@@ -22,26 +32,26 @@ public class EmployeeController {
         return employeeService.create(employee);
     }
 
-    @GetMapping("/reporting-structure/{id}")
+    @GetMapping("/get-reporting-structure/{id}")
     public ReportingStructure getReportingStructure(@PathVariable String id) {
         LOG.debug("Received reporting structure get request for employee with id [{}]", id);
 
-        return employeeService.getReportingStructure(id);
+        return reportingStructureService.getReportingStructure(id);
     }
 
-//    @PostMapping("/get-compensation/{id}")
-//    public ReportingStructure getEmployeeCompensation(@PathVariable String id) {
-//        LOG.debug("Received reporting structure get request for employee with id [{}]", id);
-//
-//        return employeeService.getReportingStructure(id);
-//    }
-//
-//    @GetMapping("/create-compensation")
-//    public ReportingStructure createEmployeeCompensation(@RequestBody Compensation compensation) {
-//        LOG.debug("Received reporting structure get request for employee with id [{}]", compensation);
-//
-//        return employeeService.getReportingStructure(compensation);
-//    }
+    @GetMapping("/get-compensation/{id}")
+    public Compensation getEmployeeCompensation(@PathVariable String id) {
+        LOG.debug("Received compensation get request for employee with id [{}]", id);
+
+        return compensationService.getCompensation(id);
+    }
+
+    @PostMapping("/create-compensation")
+    public Compensation createEmployeeCompensation(@RequestBody CompensationRequest compensationRequest) {
+        LOG.info("Received compensation create request");
+
+        return compensationService.createCompensation(compensationRequest);
+    }
 
     @GetMapping("/employee/{id}")
     public Employee read(@PathVariable String id) {
