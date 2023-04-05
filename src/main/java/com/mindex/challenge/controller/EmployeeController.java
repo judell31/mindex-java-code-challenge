@@ -3,7 +3,7 @@ package com.mindex.challenge.controller;
 import com.mindex.challenge.data.Compensation;
 import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.data.ReportingStructure;
-import com.mindex.challenge.request.CompensationRequest;
+import com.mindex.challenge.request.AddCompensationRequest;
 import com.mindex.challenge.service.CompensationService;
 import com.mindex.challenge.service.EmployeeService;
 import com.mindex.challenge.service.ReportingStructureService;
@@ -47,10 +47,10 @@ public class EmployeeController {
     }
 
     @PostMapping("/create-compensation")
-    public Compensation createEmployeeCompensation(@RequestBody CompensationRequest compensationRequest) {
+    public Compensation createEmployeeCompensation(@RequestBody AddCompensationRequest addCompensationRequest) {
         LOG.info("Received compensation create request");
 
-        return compensationService.createCompensation(compensationRequest);
+        return compensationService.createCompensation(addCompensationRequest);
     }
 
     @GetMapping("/employee/{id}")
