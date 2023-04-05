@@ -2,7 +2,7 @@ package com.mindex.challenge.request;
 
 import com.mindex.challenge.data.Employee;
 
-public class CompensationRequest {
+public class AddCompensationRequest {
     private String compensationId;
     private Employee employee;
     private int salary;

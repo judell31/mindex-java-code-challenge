@@ -2,7 +2,7 @@ package com.mindex.challenge.service.impl;
 
 import com.mindex.challenge.dao.CompensationRepository;
 import com.mindex.challenge.data.Compensation;
-import com.mindex.challenge.request.CompensationRequest;
+import com.mindex.challenge.request.AddCompensationRequest;
 import com.mindex.challenge.service.CompensationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,15 +31,15 @@ public class CompensationServiceImp implements CompensationService {
     }
 
     @Override
-    public Compensation createCompensation(CompensationRequest compensationRequest) {
+    public Compensation createCompensation(AddCompensationRequest addCompensationRequest) {
         Compensation compensation = new Compensation();
 
-        compensationRequest.getEmployee().setEmployeeId(UUID.randomUUID().toString());
+        addCompensationRequest.getEmployee().setEmployeeId(UUID.randomUUID().toString());
 
         compensation.setCompensationId(UUID.randomUUID().toString());
-        compensation.setEmployee(compensationRequest.getEmployee());
+        compensation.setEmployee(addCompensationRequest.getEmployee());
         compensation.setEffectiveDate(Instant.now());
-        compensation.setSalary(compensationRequest.getSalary());
+        compensation.setSalary(addCompensationRequest.getSalary());
 
         LOG.debug("Creating compensation for employee with id [{}]", compensation.getEmployee().getEmployeeId());
 

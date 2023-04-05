@@ -53,7 +53,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employee;
     }
 
-    // TODO: Solve tomorrow morning
     @Override
     public Employee update(Employee employee) {
         LOG.debug("Updating employee [{}]", employee);
