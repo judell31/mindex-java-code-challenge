@@ -13,8 +13,8 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Service
-public class CompensationServiceImp implements CompensationService {
-    private static final Logger LOG = LoggerFactory.getLogger(CompensationServiceImp.class);
+public class CompensationServiceImpl implements CompensationService {
+    private static final Logger LOG = LoggerFactory.getLogger(CompensationServiceImpl.class);
 
     @Autowired
     private CompensationRepository compensationRepository;
